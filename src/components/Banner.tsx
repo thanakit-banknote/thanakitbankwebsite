@@ -1,12 +1,4 @@
-import * as React from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+ import * as React from "react";
 import { useLanguage } from "./LanguageProvider";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
