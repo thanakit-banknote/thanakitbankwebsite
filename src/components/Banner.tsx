@@ -45,10 +45,49 @@ export default function Banner() {
 
   return (
     <section className="relative w-full overflow-hidden bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div>
-          <h1>{t("banner_hi")}</h1>
-        </motion.div>
+      <div className="container mx-auto px-4 md:px-6 py-20">
+        {slides.map((slide) => (
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid md:grid-cols-2 gap-10 items-center mb-20"
+          >
+            <div>
+              {slide.icon}
+
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                {slide.title}
+              </h1>
+
+              <h2 className="text-2xl text-primary mb-4">
+                {slide.subtitle}
+              </h2>
+
+              <p className="text-muted-foreground mb-6">
+                {slide.description}
+              </p>
+
+              {slide.cta && (
+                <Button asChild size="lg">
+                  <Link to="/portfolio">
+                    View Portfolio
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              )}
+            </div>
+
+            <div>
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full rounded-2xl shadow-2xl object-cover"
+              />
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
