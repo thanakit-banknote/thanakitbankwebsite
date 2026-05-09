@@ -10,9 +10,8 @@ export default function Banner() {
   const { t } = useLanguage();
   const { theme } = useTheme();
 
-const isDark = theme === "dark";
+  const isDark = theme === "dark";
 
-  const slides = [
     {
       id: 1,
       title: t("banner_hi"),
